@@ -1,0 +1,10 @@
+version: "3.7"
+
+
+services:
+  myapp:
+    image: kontinu/my-bio
+    build:
+      context: .
+    ports:
+      - 5000:5000

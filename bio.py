@@ -1,26 +1,25 @@
 #FLASK
 from flask import Flask, jsonify, render_template, request
-import os,optparse,sys
+import os,optparse,sys, yaml
 app = Flask(__name__)
 
 environment="development"
 
-links={
-    "Facebook": "https://facebook.com",
-    "Twitter": "https://twitter.com"
-}
+with open("cv.yaml", "r") as f:
+    curriculum = yaml.load(f, Loader=yaml.FullLoader)
+    print(type(curriculum))
 
 
 @app.route("/cv")
 def cv():
-    return render_template("cv.html", links=links)
+    return render_template("cv.html", cv=curriculum)
 
 
 @app.route("/links")
 @app.route("/")
 def home():
     foo="bar"
-    return render_template("home.html", links=links)
+    return render_template("home.html", cv=curriculum)
 
 if __name__ == "__main__":
     debug=False

@@ -8,18 +8,19 @@
         Link in bio.
     </p>
     <h4>
-        developed by {{developer}}
+        developed by {{cv["developer"]}}
     </h4>
 
 </div>
 
 <ul class="list-group">
-    {% for name,link in links.items() %}
+    {% for item in cv["links"] %}
         <li class="list-group-item text-center">
-            <a href="{{link}}" >{{name}} </a>
+            <a href="{{item['url']}}" >{{item['name']}} </a>
             <span class="badge badge-pill badge-primary">{{age}}</span>
         </li>
     {% endfor %}
 </ul>
+
 
 {% endblock %}
