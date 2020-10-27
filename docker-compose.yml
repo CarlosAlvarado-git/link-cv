@@ -1,15 +1,29 @@
 version: "3.7"
 
-
 services:
   myapp:
     image: kontinu/my-bio
-    command: ["env"]
+    #command: ["env"]
     environment:
       - thevar=${thevariable}
       - FOO=bar
       - var=bar
+      - DB=redis
     build:
       context: .
     ports:
       - 5000:5000
+      - 8080:5000
+  # redis:
+  #   image: redis:alpine
+  # nginx:
+  #   image: nginx:alpine
+
+  # apache:
+  #   image: httpd
+
+
+# docker network create mi-red
+# docker container run myapp --network=mi-red ............
+# docker container run redis ......
+# docker container run nginx ....
