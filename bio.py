@@ -15,6 +15,10 @@ def cv():
     return render_template("cv.html", cv=curriculum)
 
 
+@app.route("/cowsay")
+def cow():
+    return sys.exec("cowsay 'hello from flask'")
+
 @app.route("/links")
 @app.route("/")
 def home():

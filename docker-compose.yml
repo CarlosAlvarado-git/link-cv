@@ -4,6 +4,11 @@ version: "3.7"
 services:
   myapp:
     image: kontinu/my-bio
+    command: ["env"]
+    environment:
+      - thevar=${thevariable}
+      - FOO=bar
+      - var=bar
     build:
       context: .
     ports:
